@@ -1,0 +1,326 @@
+/* © Developed by Vladislav Terenchuk. Moscow 2018. */
+
+.slider {
+     width: 100%;
+     position: relative;
+}
+
+.slider[data-fullscreen]
+{
+	height: 100%;
+}
+
+.slider__wrapper {
+     position: relative;
+	height: 100%;
+	transition: all .5s linear;
+	-o-transition: all .5s linear;
+	-ms-transition: all .5s linear;
+	-moz-transition: all .5s linear;
+	-webkit-transition: all .5s linear;
+     white-space: nowrap;
+}
+
+.slider__slide {
+	display: inline-block;
+     transition: all .5s linear;
+     -o-transition: all .5s linear;
+     -ms-transition: all .5s linear;
+     -moz-transition: all .5s linear;
+     -webkit-transition: all .5s linear;
+     text-align: center;
+	box-sizing: border-box;
+}
+
+.slider__slide-content
+{
+     white-space: normal;
+     text-align: left;
+}
+
+.slide-content__wrapper {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     text-align: center;
+}
+
+.slide-content__wrapper::before {
+     content: '';
+     display: inline-block;
+     height: 100%;
+}
+
+.slide-content {
+     position: relative;
+     display: inline-block;
+     width: 100%;
+     box-sizing: border-box;
+     color: #ffffff;
+     text-align: center;
+     z-index: 2;
+}
+
+.slider-nav__wrapper {
+     position: absolute;
+     left: 0;
+     right: 0;
+     margin-top: -20px;
+     top: 50%;
+}
+
+.slider-nav__content {
+     position: relative;
+}
+
+.slider__arrow {
+     position: absolute;
+     font-size: 0;
+     line-height: 0;
+}
+
+.left-arrow {
+     left: 25px;
+     transform: rotate(180deg);
+}
+
+.right-arrow {
+     right: 25px;
+}
+
+.slider[data-hidecontrols] .slider__arrow
+{
+     opacity: 0;
+     -o-transition: all .3s linear;
+     -ms-transition: all .3s linear;
+     -moz-transition: all .3s linear;
+     -webkit-transition: all .3s linear;
+     transition: all .3s linear;
+}
+
+.slider[data-hidecontrols] .left-arrow {
+     left: -200px;
+}
+
+.slider[data-hidecontrols]:hover .left-arrow {
+     opacity: 1;
+}
+
+.slider[data-hidecontrols] .right-arrow {
+     right: -200px;
+}
+
+.slider[data-hidecontrols]:hover .right-arrow {
+     opacity: 1;
+}
+
+.slider-items__preview {
+     margin: 0;
+}
+
+.slider-items__preview>div>div {
+     margin-bottom: 0;
+     text-align: center;
+}
+
+.slider-item__preview {
+	display: inline-block;
+}
+
+.slider-items__preview
+{
+	display: block;
+	text-align: center;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.slider-items__preview li
+{
+	display: inline-block;
+	list-style: none;
+	margin: 0 5px;
+}
+
+.slider-items__preview li::before
+{
+	display: none;
+}
+
+.slider-item__preview
+{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: #ffffff;
+	border-radius: 50%;
+     -o-transition: all .2s linear;
+     -ms-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+     -webkit-transition: all .2s linear;
+     transition: all .2s linear;
+}
+
+/* ---------- SLIDER ANIMATION ---------- */
+
+.slider[data-animation="slider"]
+{
+	overflow: hidden;
+}
+
+.slider[data-animation="slider"] .slider__wrapper
+{
+	left: 0;
+}
+
+.slider[data-animation="slider"] .slider__slide
+{
+	width: 100%;
+	height: 100%;
+}
+
+/* ---------- ! SLIDER ANIMATION ---------- */
+
+/* ---------- SLIDESHOW ANIMATION ---------- */
+
+.slider[data-animation="slideshow"] .slider__slide
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: -1;
+}
+
+.slider[data-animation="slideshow"] .slider__slide.current
+{
+     position: relative;
+     opacity: 1;
+     z-index: 0;
+}
+
+/* ---------- ! SLIDESHOW ANIMATION ---------- */
+
+/* ---------- GALLERY ANIMATION ---------- */
+
+.slider[data-animation="gallery"]
+{
+	overflow: hidden;
+}
+
+.slider[data-animation="gallery"] .slider__wrapper
+{
+	left: 0;
+     font-size: 0;
+}
+
+.slider[data-animation="gallery"][data-display="2"] .slider__wrapper
+{
+     margin-left: -20px;
+     margin-right: -20px;
+}
+
+.slider[data-animation="gallery"][data-display="3"] .slider__wrapper
+{
+     margin-left: -15px;
+     margin-right: -15px;
+}
+
+.slider[data-animation="gallery"][data-display="4"] .slider__wrapper,
+.slider[data-animation="gallery"][data-display="5"] .slider__wrapper
+{
+     margin-left: -10px;
+     margin-right: -10px;
+}
+
+.slider[data-animation="gallery"][data-display="2"] .slider__slide
+{
+     width: 50%;
+     padding-left: 20px;
+     padding-right: 20px;
+}
+
+.slider[data-animation="gallery"][data-display="3"] .slider__slide
+{
+     width: 33.33333%;
+     padding-left: 15px;
+     padding-right: 15px;
+}
+
+.slider[data-animation="gallery"][data-display="4"] .slider__slide
+{
+     width: 25%;
+     padding-left: 10px;
+     padding-right: 10px;
+}
+
+.slider[data-animation="gallery"][data-display="5"] .slider__slide
+{
+     width: 20%;
+     padding-left: 10px;
+     padding-right: 10px;
+}
+
+.slider[data-animation="gallery"] .slider__wrapper::after
+{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+@media screen and (max-width: 480px) {
+     .slider[data-animation="gallery"][data-display="2"] .slider__slide,
+     .slider[data-animation="gallery"][data-display="3"] .slider__slide,
+     .slider[data-animation="gallery"][data-display="4"] .slider__slide,
+     .slider[data-animation="gallery"][data-display="5"] .slider__slide
+     {
+          width: 100%;
+     }
+}
+
+/* ---------- ! GALLERY ANIMATION ---------- */
+
+/* ---------- CARD ANIMATION ---------- */
+
+.slider[data-animation="card"] .slider__slide
+{
+     position: absolute;
+     width: 100%;
+     font-size: 0;
+     line-height: 0;
+     filter: blur(3px);
+     -o-filter: blur(3px);
+     -ms-filter: blur(3px);
+     -moz-filter: blur(3px);
+     -webkit-filter: blur(3px);
+     cursor: pointer;
+     transform: scale(.7);
+     -o-transform: scale(.7);
+     -ms-transform: scale(.7);
+     -moz-transform: scale(.7);
+     -webkit-transform: scale(.7);
+     box-shadow: 0 0 130px 0 #4f4e52;
+}
+
+.slider[data-animation="card"] .slider__slide.current
+{
+     position: relative;
+     z-index: 1;
+     transform: scale(1);
+}
+
+.slider[data-animation="card"] .slider__slide:hover,
+.slider[data-animation="card"] .slider__slide.current
+{
+     filter: blur(0);
+     -o-filter: blur(0);
+     -ms-filter: blur(0);
+     -moz-filter: blur(0);
+     -webkit-filter: blur(0);
+}
+
+/* ---------- ! CARD ANIMATION ---------- */
